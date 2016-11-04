@@ -1,0 +1,104 @@
+As per the information gathered from AWS lambda example.
+
+Following is the Alexa Request JSON format
+
+Context =
+{  
+   "System":
+   {  
+      "application":
+      {  
+         "applicationId":"string"
+      },
+      
+      "user":
+      {  
+         "userId":"string",
+         "accessToken":"string"
+      },
+      
+      "device":
+      {  
+         "supportedInterfaces":
+         {  
+            "AudioPlayer":
+            {  
+
+            }
+         }
+      }
+   },
+   "AudioPlayer":
+   {  
+      "token":"string",
+      "offsetInMilliseconds":0,
+      "playerActivity":"string"
+   }
+},
+
+## Event =
+{
+  "version": "string",
+  
+  "session": 
+  {
+    "new": true,
+    "sessionId": "string",
+    
+	 "application": 
+	 {
+      "applicationId": "string"
+    },
+	 
+    "attributes": 
+	 {
+      "string": {}
+    },
+	 
+    "user": 
+	 {
+      "userId": "string",
+      "accessToken": "string"
+    }
+  },
+   ## Any of Following request is received at one time
+  "request": 
+  { ## LaunchRequest
+    "type": "LaunchRequest",
+    "requestId": "string",
+    "timestamp": "string",
+    "locale": "string"
+   },
+	"request":
+	{ ## IntentRequest
+	  "type": "IntentRequest",
+	  "requestId": "string",
+	  "timestamp": "string",
+	  "locale": "string",
+	  "intent": 
+	  {
+		 "name": "string",
+		 "slots": 
+		 {
+			"string": 
+			{
+			  "name": "string",
+			  "value": "string"
+			}
+		 }
+	  }
+	}
+	"request":
+	{ ## SessionEndedRequest
+	  "type": "SessionEndedRequest",
+	  "requestId": "string",
+	  "timestamp": "string",
+	  "reason": "string",
+	  "locale": "string",
+	  "error": 
+	  {
+		 "type": "string",
+		 "message": "string"
+	  }
+	}	
+}
