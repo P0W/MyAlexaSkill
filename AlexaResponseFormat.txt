@@ -1,55 +1,55 @@
 ## Following is returned as a response
 
 {
-  "version": "string", ## Required
+  "version": "string",  ## Required
   
-  "sessionAttributes": ## Optional
+  "sessionAttributes":  ## Optional
   {
     "string": object
   },
   
-  "response": ## Required 
+  "response":           ## Required 
   {
     
-	 "outputSpeech":  ## Optional
-	 {
-      "type": "string",
-      "text": "string",
-      "ssml": "string"
+    "outputSpeech":     ## Optional 
+    {
+      "type": "string", ## Required ( "SSML" or "PlainText" )
+      "text": "string", ## Required for plain text
+      "ssml": "string"  ## Required when 'type' is "SSML"
     },
 	 
-    "card":  ## Optional
-	 {
-      "type": "string",
-      "title": "string",
-      "content": "string",
-      "text": "string",
-      "image": 
-		{
+    "card":                ## Optional
+    {
+      "type": "string",    ## Required 
+      "title": "string",   ## Optional
+      "content": "string", ## Optional
+      "text": "string",    ## Optional
+      "image":             ## Optional 
+     {
         "smallImageUrl": "string",
         "largeImageUrl": "string"
       }
     },
 	 
-    "reprompt":  ## Optional
-	 {
-      "outputSpeech": 
-		{
+    "reprompt":           ## Optional
+    {
+      "outputSpeech":     ## Optional
+      {
         "type": "string",
         "text": "string",
         "ssml": "string"
       }
     },
 	 
-    "directives": 
-	 [
+    "directives":         ## Optional
+    [
       {
         "type": "string",
         "playBehavior": "string",
         "audioItem": 
-		  {
+       {
           "stream": 
-			 {
+	  {
             "token": "string",
             "url": "string",
             "offsetInMilliseconds": 0
