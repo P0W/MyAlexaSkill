@@ -1,0 +1,63 @@
+## Following is returned as a response
+
+{
+  "version": "string", ## Required
+  
+  "sessionAttributes": ## Optional
+  {
+    "string": object
+  },
+  
+  "response": ## Required 
+  {
+    
+	 "outputSpeech":  ## Optional
+	 {
+      "type": "string",
+      "text": "string",
+      "ssml": "string"
+    },
+	 
+    "card":  ## Optional
+	 {
+      "type": "string",
+      "title": "string",
+      "content": "string",
+      "text": "string",
+      "image": 
+		{
+        "smallImageUrl": "string",
+        "largeImageUrl": "string"
+      }
+    },
+	 
+    "reprompt":  ## Optional
+	 {
+      "outputSpeech": 
+		{
+        "type": "string",
+        "text": "string",
+        "ssml": "string"
+      }
+    },
+	 
+    "directives": 
+	 [
+      {
+        "type": "string",
+        "playBehavior": "string",
+        "audioItem": 
+		  {
+          "stream": 
+			 {
+            "token": "string",
+            "url": "string",
+            "offsetInMilliseconds": 0
+          }
+        }
+      }
+    ],
+	 
+    "shouldEndSession": boolean ## Optional
+  }
+}
