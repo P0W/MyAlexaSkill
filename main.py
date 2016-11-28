@@ -1,6 +1,7 @@
 ## Author : Prashant
 ## Learning Amazon Web Services( AWS) Lambda Functions with Amazon Echo
 
+
 class AlexaResponseBuilder(object):
     def __init__(self, event, context ):
         self.event   = event
@@ -118,13 +119,18 @@ class StockRunner(  GoogleFinanceStockGrabber ):
     
 
 AllStocks = { 
-               ## 'Exchange:Symbol' : Qty to buy
+                   ## 'Exchange:Symbol' : Actual Name
                   'BOM:509480'      : 'Berger Paints'             ,
                   'BOM:500233'      : 'Kajaria Ceramics'          ,
-                  'BOM:532540'      : 'Tata Consultancy Services' ,
-                  'BOM:532500'      : 'Maruti Suzuki Limited'     ,
+                  'BOM:532540'      : 'Tata Consultancy Services Limited' ,
+                  'BOM:532500'      : 'Maruti Suzuki India Limited',
                   'BOM:500096'      : 'Dabur India Limited'       ,
-                  
+                  'BOM:500112'      : 'State Bank of India'       ,
+                  'BOM:500209'      : 'Infosys Limited',
+                  'BOM:532483'      : 'Canara Bank Limited',
+                  'BOM:533344'      : 'PTC India Financial Services Limited',
+                  'BOM:500570'      : 'Tata Motors Limited',
+                  'BOM:502137'      : 'Deccan Cements',
                 }
                 
 class GreetFromAlexa( AlexaResponseBuilder ):
@@ -143,8 +149,9 @@ class GreetFromAlexa( AlexaResponseBuilder ):
     def onCustomIntentReceived( self ):
         print ('INTENT REQUEST' )
         self.sendToAlexa['response'][ 'outputSpeech' ][ 'text' ] = \
-                    "Share Value from Bombay Stock Exchage as follows :\n %s " % self.sockrunner.run()
+                    "Your share values from Bombay Stock Exchage as follows :\n %s " % self.sockrunner.run()
         self.sendToAlexa['response']['shouldEndSession'] = True
+        self.sendToAlexa['response'][ 'card' ][ 'content' ] = self.sendToAlexa['response'][ 'outputSpeech' ][ 'text' ] 
         return  self.sendToAlexa
 
 def lambda_handler( event, context ):
