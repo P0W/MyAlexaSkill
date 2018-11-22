@@ -80,9 +80,9 @@ Context =
 		 "name": "string",
 		 "slots": 
 		 {
-			"string": 
+			"slots_name": 
 			{
-			  "name": "string",
+			  "name": "slots_name",
 			  "value": "string"
 			}
 		 }
